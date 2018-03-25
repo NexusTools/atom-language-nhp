@@ -1,6 +1,6 @@
 {
   "name": "language-nhp",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Adds NexusFramework support and functionality to Atom.",
   "keywords": [
     "nhp",
