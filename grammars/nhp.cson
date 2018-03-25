@@ -1,0 +1,136 @@
+'scopeName': 'source.nhp'
+'name': 'NHP'
+'fileTypes': [
+  'nhp'
+]
+# injections snippet from https://github.com/atom/language-php
+'injections':
+  'source.nhp - (meta.embedded | meta.tag), L:source.nhp meta.tag, L:source.js.embedded.html':
+    'patterns': [
+      {
+        'include': '#nhp-tag'
+      }
+    ]
+'patterns': [
+  {
+    'include': 'text.html.basic'
+  }
+]
+'repository':
+  'nhp-tag':
+    'patterns': [
+      {
+        'begin': '<\\?(if|elseif|template|include|json|exec|echo|json|each)\\s+'
+        'beginCaptures':
+          '0':
+            'name': 'punctuation.section.embedded.begin.nhp'
+          '1':
+            'name': 'keyword.control.${1:/downcase}.nhp'
+        'end': '\\?>'
+        'endCaptures':
+          '0':
+            'name': 'punctuation.section.embedded.end.nhp'
+        'patterns': [
+          {
+            'include': 'source.js'
+          }
+        ]
+      }
+      {
+        'begin': '<\\?(set|add)\\s+(\\w+)\\s+'
+        'beginCaptures':
+          '0':
+            'name': 'punctuation.section.embedded.begin.nhp'
+          '1':
+            'name': 'keyword.control.${1:/downcase}.nhp'
+          '2':
+            'name': 'keyword.control.${1:/downcase}.nhp'
+        'end': '\\?>'
+        'endCaptures':
+          '0':
+            'name': 'punctuation.section.embedded.end.nhp'
+        'patterns': [
+          {
+            'include': 'source.js'
+          }
+        ]
+      }
+      {
+        'begin': '<\\?(map)\\s+(\\w+)\\s+("?\\w+"?)'
+        'beginCaptures':
+          '0':
+            'name': 'punctuation.section.embedded.begin.nhp'
+          '1':
+            'name': 'keyword.control.${1:/downcase}.nhp'
+          '2':
+            'name': 'keyword.control.${1:/downcase}.nhp'
+          '3':
+            'name': 'keyword.control.${1:/downcase}.nhp'
+        'end': '\\?>'
+        'endCaptures':
+          '0':
+            'name': 'punctuation.section.embedded.end.nhp'
+        'patterns': [
+          {
+            'include': 'source.js'
+          }
+        ]
+      }
+      {
+        'begin': '<\\?(else|endif|done)'
+        'beginCaptures':
+          '0':
+            'name': 'punctuation.section.embedded.begin.nhp'
+          '1':
+            'name': 'keyword.control.${1:/downcase}.nhp'
+        'end': '\\?>'
+        'endCaptures':
+          '0':
+            'name': 'punctuation.section.embedded.end.nhp'
+      }
+      {
+        'begin': '(?<!{){{(?!{)'
+        'beginCaptures':
+          '0':
+            'name': 'punctuation.section.embedded.begin.nhp'
+        'end': '(?<!})}}(?!})'
+        'endCaptures':
+          '0':
+            'name': 'punctuation.section.embedded.end.nhp'
+          '1':
+            'name': 'source.nhp'
+        'patterns': [
+          {
+            'include': 'source.js'
+          }
+        ]
+      }
+      {
+        'begin': '(?<!{){{{(?!{)'
+        'beginCaptures':
+          '0':
+            'name': 'punctuation.section.embedded.begin.nhp'
+        'end': '(?<!})}}}(?!})'
+        'endCaptures':
+          '0':
+            'name': 'punctuation.section.embedded.end.nhp'
+          '1':
+            'name': 'source.nhp'
+        'patterns': [
+          {
+            'include': 'source.js'
+          }
+        ]
+      }
+    ]
+  'nhp-content':
+    'patterns': [
+      {
+        'match': '\\w+'
+        'name': 'keyword.namespace.nhp'
+      }
+      {
+        'match': '\\.'
+        'name': 'punctuation.definition.variable.nhp'
+      }
+    ]

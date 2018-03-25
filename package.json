@@ -1,0 +1,17 @@
+{
+  "name": "language-nhp",
+  "version": "0.0.1",
+  "description": "Adds NexusFramework support and functionality to Atom.",
+  "keywords": [
+    "nhp",
+    "language",
+    "grammar",
+    "syntax",
+    "NexusFramework"
+  ],
+  "repository": "https://github.com/NexusTools/atom-language-nhp",
+  "license": "Apache License 2.0",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  }
+}
