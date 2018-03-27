@@ -1,7 +1,7 @@
 {
   "name": "language-nhp",
   "version": "0.2.0",
-  "description": "Adds NexusFramework support and functionality to Atom.",
+  "description": "This package provides NHP syntax support for the Atom text editor.",
   "keywords": [
     "nhp",
     "language",
